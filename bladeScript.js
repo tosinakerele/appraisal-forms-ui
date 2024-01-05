@@ -80,20 +80,6 @@ const handleFocusOutEvents = (e) => {
 };
 
 const addNewSection = async () => {
-  let url = "/partials/newSection.html";
-  fetch(url)
-    .then((response) => response.text())
-    .then((section) => {
-      const newDiv = document.createElement("div");
-      newDiv.setAttribute("data-name", "new-entire-question");
-      newDiv.innerHTML = section;
-      saveBtn.insertAdjacentElement("beforebegin", newDiv);
-    })
-    .catch((error) => {
-      console.error("Error fetching response:", error);
-    });
-
-  return;
   let route = `/hrm/appraisal/forms/add-new-section`;
   fetch(route)
     .then((response) => response.text())
