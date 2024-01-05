@@ -31,141 +31,144 @@
         </ul>
         <!---END:::Breadcrumbs -->
       </nav>
-    </section>
-    <section class="w-3/4 mx-auto mt-3">
-      <div
-        class="p-3 rounded-md mb-4 flex items-center justify-center gap-2 bg-white"
-      >
-        <ion-icon
-          name="warning"
-          class="text-2xl text-yellow animate-pulse"
-        ></ion-icon>
-        <p>
-          Please ensure to create a <strong>Section</strong> before adding
-          <strong>Questions!</strong>
-        </p>
-        <ion-icon
-          name="warning"
-          class="text-2xl text-yellow animate-pulse"
-        ></ion-icon>
-      </div>
-      <div
-        class="bg-white rounded-md p-3 flex items-center justify-between"
-        data-id="accordion__evaluation-info"
-      >
-        <span class="font-medium">Evaluation Information</span>
-        <ion-icon
-          name="chevron-down-outline"
-          class="cursor-pointer ml-auto duration-300 hover:bg-gray-50 rounded-md p-1"
-          data-id="accordion__evaluation-info-btn"
+
+      <section class="w-3/4 mx-auto mt-3">
+        <div
+          class="p-3 rounded-md mb-4 flex items-center justify-center gap-2 bg-white"
         >
-        </ion-icon>
-      </div>
-      <div class="relative">
-        <form class="space-y-4 relative" id="appraisal-form">
-          <!-- Start::Form Details -->
-          <section
-            class="border-t-8 outline-8 outline-green-500 border-accent rounded-md px-5 py-5 mt-4 space-y-2 duration-200 ease-linear overflow-hidden bg-white"
-            id="accordion__evaluation-details"
+          <ion-icon
+            name="warning"
+            class="text-2xl text-yellow animate-pulse"
+          ></ion-icon>
+          <p>
+            Please ensure to create a <strong>Section</strong> before adding
+            <strong>Questions!</strong>
+          </p>
+          <ion-icon
+            name="warning"
+            class="text-2xl text-yellow animate-pulse"
+          ></ion-icon>
+        </div>
+        <div
+          class="bg-white rounded-md p-3 flex items-center justify-between"
+          data-id="accordion__evaluation-info"
+        >
+          <span class="font-medium">Evaluation Information</span>
+          <ion-icon
+            name="chevron-down-outline"
+            class="cursor-pointer ml-auto duration-300 hover:bg-gray-50 rounded-md p-1"
+            data-id="accordion__evaluation-info-btn"
           >
-            <div class="">
-              <label class="leading-loose hidden" for="name"
-                >Form Title:
-              </label>
-              <input
-                class="border-b p-1 focus:border-accent focus:outline-none focus:border-b outline-none placeholder:font-light font-semibold text-3xl w-full"
-                type="text"
-                placeholder="Form Title"
-                name="name"
-              />
+          </ion-icon>
+        </div>
+        <div class="relative">
+          <form class="space-y-4 relative" id="appraisal-form">
+            <!-- Start::Form Details -->
+            <section
+              class="border-t-8 outline-8 outline-green-500 border-accent rounded-md px-5 py-5 mt-4 space-y-2 duration-200 ease-linear overflow-hidden bg-white"
+              id="accordion__evaluation-details"
+            >
+              <div class="">
+                <label class="leading-loose hidden" for="name"
+                  >Form Title:
+                </label>
+                <input
+                  class="border-b p-1 focus:border-accent focus:outline-none focus:border-b outline-none placeholder:font-light font-semibold text-3xl w-full"
+                  type="text"
+                  placeholder="Form Title"
+                  name="name"
+                />
+              </div>
+              <div>
+                <label class="leading-loose hidden" for="description"
+                  >Description:
+                </label>
+                <input
+                  class="border-b p-1 focus:border-accent outline-none focus:outline-none placeholder:font-light font-medium w-full"
+                  type="text"
+                  placeholder="Enter the description of form here"
+                  name="description"
+                />
+              </div>
+              <div>
+                <label for="instruction" class="leading-loose"
+                  >Instructions:
+                </label>
+                <textarea
+                  class="border rounded w-full px-3 py-2 focus:border-accent focus:outline-0 resize-none text-sm"
+                  id=""
+                  cols="15"
+                  rows="4"
+                  placeholder="Give specific instructions"
+                  name="instruction"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="purpose_of_evaluation" class="leading-loose"
+                  >Purpose of Evaluation:
+                </label>
+                <textarea
+                  class="border rounded w-full px-3 py-2 focus:border-accent focus:outline-0 resize-none text-sm"
+                  id=""
+                  cols="15"
+                  rows="4"
+                  name="purpose_of_evaluation"
+                  placeholder="What is the purpose of this Evaluation?"
+                ></textarea>
+              </div>
+            </section>
+            <!-- End::Form Details -->
+
+            <!--Start :: Action Buttons-->
+            <div
+              class="absolute top-0 -right-[50px] w-fit ease-linear duration-200"
+              id="floating-action-buttons"
+            >
+              <ul
+                class="w-full text-xl font-medium divide-y bg-white rounded-lg"
+              >
+                <li class="">
+                  <a
+                    class="flex items-center justify-center p-2 cursor-pointer active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
+                    title="Add New Question"
+                    onclick="addQuestionOnClick('text')"
+                  >
+                    <ion-icon
+                      name="add-circle-outline"
+                      class="pointer-events-none"
+                    ></ion-icon>
+                  </a>
+                </li>
+                <li class="">
+                  <a
+                    title="Add New Section"
+                    class="flex items-center justify-center p-2 cursor-pointer active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
+                    onclick="addNewSection()"
+                  >
+                    <ion-icon
+                      name="reorder-two-outline"
+                      class="pointer-events-none"
+                    ></ion-icon>
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div>
-              <label class="leading-loose hidden" for="description"
-                >Description:
-              </label>
-              <input
-                class="border-b p-1 focus:border-accent outline-none focus:outline-none placeholder:font-light font-medium w-full"
-                type="text"
-                placeholder="Enter the description of form here"
-                name="description"
-              />
+            <!--End :: Action Buttons-->
+
+            <!-- START::=> Other Sections and Questions -->
+
+            <!-- END::=> Other Sections and Questions -->
+
+            <!-- submit form -->
+            <div class="flex items-center justify-end" id="save-btn">
+              <button class="bg-accent text-white rounded-md px-4 py-2 text-sm">
+                Save
+              </button>
             </div>
-            <div>
-              <label for="instruction" class="leading-loose"
-                >Instructions:
-              </label>
-              <textarea
-                class="border rounded w-full px-3 py-2 focus:border-accent focus:outline-0 resize-none text-sm"
-                id=""
-                cols="15"
-                rows="4"
-                placeholder="Give specific instructions"
-                name="instruction"
-              ></textarea>
-            </div>
-
-            <div>
-              <label for="purpose_of_evaluation" class="leading-loose"
-                >Purpose of Evaluation:
-              </label>
-              <textarea
-                class="border rounded w-full px-3 py-2 focus:border-accent focus:outline-0 resize-none text-sm"
-                id=""
-                cols="15"
-                rows="4"
-                name="purpose_of_evaluation"
-                placeholder="What is the purpose of this Evaluation?"
-              ></textarea>
-            </div>
-          </section>
-          <!-- End::Form Details -->
-
-          <!--Start :: Action Buttons-->
-          <div
-            class="absolute top-0 -right-[50px] w-fit ease-linear duration-200"
-            id="floating-action-buttons"
-          >
-            <ul class="w-full text-xl font-medium divide-y bg-white rounded-lg">
-              <li class="">
-                <a
-                  class="flex items-center justify-center p-2 cursor-pointer active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
-                  title="Add New Question"
-                  onclick="addQuestionOnClick('text')"
-                >
-                  <ion-icon
-                    name="add-circle-outline"
-                    class="pointer-events-none"
-                  ></ion-icon>
-                </a>
-              </li>
-              <li class="">
-                <a
-                  title="Add New Section"
-                  class="flex items-center justify-center p-2 cursor-pointer active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
-                  onclick="addNewSection()"
-                >
-                  <ion-icon
-                    name="reorder-two-outline"
-                    class="pointer-events-none"
-                  ></ion-icon>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <!--End :: Action Buttons-->
-
-          <!-- START::=> Other Sections and Questions -->
-
-          <!-- END::=> Other Sections and Questions -->
-
-          <!-- submit form -->
-          <div class="flex items-center justify-end" id="save-btn">
-            <button class="bg-accent text-white rounded-md px-4 py-2 text-sm">
-              Save
-            </button>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
+      </section>
     </section>
     <script src="main.js"></script>
   </body>

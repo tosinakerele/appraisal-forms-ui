@@ -1,18 +1,46 @@
-<section class="bg-white rounded-lg px-5 py-5 space-y-4" data-name="section">
-  <input
-    type="text"
-    name="name"
-    id=""
-    class="focus:border-accent focus:outline-0 text-xl w-3/4 font-medium"
-    placeholder="Section Title (Optional)"
-    value="(Untitled Section)"
-  />
-  <br />
+<section class="bg-white rounded-lg px-5 py-5 space-y-4" data-name="question">
+  <div class="flex items-center justify-between">
+    <input
+      type="text"
+      name="name"
+      id=""
+      class="focus:border-accent focus:outline-0 w-3/4 leading-10 py-2 font-medium text-base"
+      placeholder="Question"
+    />
+    <ul class="flex items-center justify-center space-x-2">
+      <li class="">
+        <a
+          class="flex items-center justify-center active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
+          title="More"
+          onclick="deleteQuestion(this)"
+        >
+          <ion-icon
+            name="ellipsis-vertical"
+            class="text-accent cursor-pointer p-1 hover:bg-accent-light rounded-md"
+          ></ion-icon>
+        </a>
+      </li>
+      <li class="">
+        <a
+          class="flex items-center justify-center active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
+          title="Remove Question"
+          onclick="deleteQuestion(this)"
+        >
+          <ion-icon
+            name="trash"
+            class="text-accent cursor-pointer p-1 hover:bg-accent-light rounded-md"
+          ></ion-icon>
+        </a>
+      </li>
+    </ul>
+  </div>
   <textarea
     name=""
     id=""
-    cols="30"
-    rows="10"
-    class="focus:border-accent focus:outline-0 w-full border-b"
+    cols="10"
+    rows="4"
+    class="focus:border-accent focus:outline-0 w-full border resize-none p-2 rounded text-sm"
+    placeholder="Answer"
+    readonly
   ></textarea>
 </section>

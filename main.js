@@ -80,8 +80,8 @@ const handleFocusOutEvents = (e) => {
 };
 
 const addNewSection = async () => {
-  let url = "/partials/newSection.html";
-  fetch(url)
+  let newSectionPath = "/partials/newSection.html";
+  fetch(newSectionPath)
     .then((response) => response.text())
     .then((section) => {
       const newDiv = document.createElement("div");
@@ -90,7 +90,7 @@ const addNewSection = async () => {
       saveBtn.insertAdjacentElement("beforebegin", newDiv);
     })
     .catch((error) => {
-      console.error("Error fetching response:", error);
+      alert("Error fetching response:", error);
     });
 
   return;
@@ -109,6 +109,21 @@ const addNewSection = async () => {
 };
 
 const addNewQuestion = async (questionType) => {
+  let newQuestionPath = "/partials/shortQuestion.html";
+
+  fetch(newQuestionPath)
+    .then((response) => response.text())
+    .then((section) => {
+      const newDiv = document.createElement("div");
+      newDiv.setAttribute("data-name", "new-entire-question");
+      newDiv.innerHTML = section;
+      saveBtn.insertAdjacentElement("beforebegin", newDiv);
+    })
+    .catch((error) => {
+      alert("Error fetching response:", error);
+    });
+  return;
+
   let route = `/hrm/appraisal/forms/add-new-question/${questionType}`;
   let templateView;
   await $.ajax({
