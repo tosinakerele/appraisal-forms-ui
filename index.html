@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Appraisal Form</title>
     <link rel="stylesheet" href="./output.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@500&family=Work+Sans:wght@300;500;600;700&display=swap");
-      body {
-        font-family: "Mulish", sans-serif;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -55,22 +50,22 @@
         ></ion-icon>
       </div>
       <div
-        class="shadow-card rounded-md p-3 flex items-center justify-between"
+        class="bg-white rounded-md p-3 flex items-center justify-between"
         data-id="accordion__evaluation-info"
       >
         <span class="font-medium">Evaluation Information</span>
         <ion-icon
           name="chevron-down-outline"
-          class="cursor-pointer ml-auto duration-300"
+          class="cursor-pointer ml-auto duration-300 hover:bg-gray-50 rounded-md p-1"
           data-id="accordion__evaluation-info-btn"
-          >>
+        >
         </ion-icon>
       </div>
       <div class="relative">
         <form class="space-y-4 relative" id="appraisal-form">
           <!-- Start::Form Details -->
           <section
-            class="border-t-8 shadow border-accent rounded-md px-5 py-5 mt-4 space-y-2 duration-200 ease-linear border-l-transparent border-l-4 overflow-hidden"
+            class="border-t-8 outline-8 outline-green-500 border-accent rounded-md px-5 py-5 mt-4 space-y-2 duration-200 ease-linear overflow-hidden bg-white"
             id="accordion__evaluation-details"
           >
             <div class="">
@@ -127,13 +122,13 @@
 
           <!--Start :: Action Buttons-->
           <div
-            class="absolute top-0 -right-[50px] shadow-card rounded-md py-2 w-fit ease-linear duration-200"
+            class="absolute top-0 -right-[50px] w-fit ease-linear duration-200"
             id="floating-action-buttons"
           >
-            <ul class="w-full bg-white text-xl font-medium">
-              <li class="px-2 pb-2 border-b">
+            <ul class="w-full text-xl font-medium divide-y bg-white rounded-lg">
+              <li class="">
                 <a
-                  class="cursor-pointer active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
+                  class="flex items-center justify-center p-2 cursor-pointer active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
                   title="Add New Question"
                   onclick="addQuestionOnClick('text')"
                 >
@@ -143,10 +138,10 @@
                   ></ion-icon>
                 </a>
               </li>
-              <li class="px-2 pt-2">
+              <li class="">
                 <a
                   title="Add New Section"
-                  class="cursor-pointer active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
+                  class="flex items-center justify-center p-2 cursor-pointer active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
                   onclick="addNewSection()"
                 >
                   <ion-icon

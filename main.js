@@ -25,12 +25,12 @@ const handleClickEvents = (e) => {
 
   switch (id) {
     case "accordion__evaluation-info-btn":
+      e.target.classList.toggle("-rotate-90");
       formDetails.classList.toggle("h-0");
       formDetails.classList.toggle("py-5");
       formDetails.classList.toggle("mt-4");
       formDetails.classList.toggle("border-t-8");
       formDetails.classList.toggle("opacity-0");
-      e.target.classList.toggle("-rotate-90");
       break;
 
     default:
@@ -61,11 +61,6 @@ const handleFocusInEvents = (e) => {
   let top = parentElement.parentElement.offsetTop;
   let top_2 = parentElement.offsetTop;
 
-  parentElement.classList.toggle("border-l-transparent");
-  parentElement.parentElement.classList.toggle("border-l-transparent");
-  parentElement.parentElement.parentElement.classList.toggle(
-    "border-l-transparent"
-  );
   e.target.classList.add("border-b");
   floatingActionButtons.style.top = calcLowestTop(top, top_2) + "px";
 };
@@ -74,9 +69,6 @@ const handleFocusOutEvents = (e) => {
   let { parentElement } = e.target.parentElement;
   let allInputElements = parentElement.querySelectorAll("input");
   let allTextAreaElements = parentElement.querySelectorAll("textarea");
-
-  parentElement.classList.toggle("border-l-transparent");
-  parentElement.parentElement.classList.toggle("border-l-transparent");
 
   if (allInputElements) {
     if (!e.target.value) {
@@ -203,4 +195,4 @@ const resizeObserver = new ResizeObserver((entries) => {
     // handleFocusInEvents()
   }
 });
-resizeObserver.observe(form);
+// resizeObserver.observe(form);
