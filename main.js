@@ -108,38 +108,45 @@ const addNewSection = async () => {
     });
 };
 
-const addNewQuestion = async (questionType) => {
-  let newQuestionPath = "/partials/shortQuestion.html";
+const addNewQuestion = async (questionType = "shortQuestion") => {
+  try {
+    let newQuestionPath = `/partials/${questionType}.html`;
+    let tempView;
 
-  fetch(newQuestionPath)
-    .then((response) => response.text())
-    .then((section) => {
+    const response = await fetch(newQuestionPath);
+
+    if (response.status === 200) {
+      const data = await response.text();
+
       const newDiv = document.createElement("div");
-      newDiv.setAttribute("data-name", "new-entire-question");
-      newDiv.innerHTML = section;
+      newDiv.setAttribute("data-name", "question");
+      newDiv.innerHTML = data;
+      tempView = newDiv;
       saveBtn.insertAdjacentElement("beforebegin", newDiv);
-    })
-    .catch((error) => {
-      alert("Error fetching response:", error);
-    });
-  return;
+      return tempView;
+    } else {
+      alert("error");
+    }
+  } catch (error) {
+    alert("Error fetching response", error);
+  }
 
-  let route = `/hrm/appraisal/forms/add-new-question/${questionType}`;
-  let templateView;
-  await $.ajax({
-    type: "GET",
-    url: route,
-    success: function (data) {
-      const template = document.createElement("div");
-      template.setAttribute("data-name", "question");
-      template.innerHTML = data;
-      templateView = template;
-    },
-    error: function (data) {
-      console.error(data);
-    },
-  });
-  return templateView;
+  // let route = `/hrm/appraisal/forms/add-new-question/${questionType}`;
+  // let templateView;
+  // await $.ajax({
+  //   type: "GET",
+  //   url: route,
+  //   success: function (data) {
+  //     const template = document.createElement("div");
+  //     template.setAttribute("data-name", "question");
+  //     template.innerHTML = data;
+  //     templateView = template;
+  //   },
+  //   error: function (data) {
+  //     console.error(data);
+  //   },
+  // });
+  // return templateView;
 };
 
 const changeQuestionType = async (e) => {
@@ -149,8 +156,8 @@ const changeQuestionType = async (e) => {
   form.replaceChild(response, oldQuestionType);
 };
 
-const addQuestionOnClick = async (questionType) => {
-  const response = await addNewQuestion(questionType);
+const addQuestionOnClick = async () => {
+  const response = await addNewQuestion();
   saveBtn.insertAdjacentElement("beforebegin", response);
 };
 

@@ -1,0 +1,66 @@
+<section class="bg-white rounded-lg px-5 py-5 space-y-4" data-name="question">
+  <div class="flex items-center justify-between">
+    <input
+      type="text"
+      name="name"
+      id=""
+      class="focus:border-accent focus:outline-0 w-3/4 leading-10 py-2 font-medium text-base"
+      placeholder="Question"
+    />
+    <select
+      name=""
+      id=""
+      class="space-y-1 text-sm border rounded-md focus:border-accent p-1 cursor-pointer focus:outline-none m-2"
+      onchange="changeQuestionType(this)"
+    >
+      <option value="shortQuestion" class="p-1 hover:text-accent">
+        Short Answer
+      </option>
+      <option selected value="longQuestion" class="p-1 hover:text-accent">
+        Paragraph
+      </option>
+      <option value="multiple-choice" class="p-1 hover:text-accent">
+        Multiple Choice
+      </option>
+      <option value="checkboxes" class="p-1 hover:text-accent">
+        Checkboxes
+      </option>
+      <option value="dropdown" class="p-1 hover:text-accent">Dropdown</option>
+    </select>
+    <ul class="flex items-center justify-center space-x-2">
+      <li class="">
+        <a
+          class="flex items-center justify-center active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
+          title="Duplicate"
+          onclick="duplicateQuestion(this)"
+        >
+          <ion-icon
+            name="copy"
+            class="text-accent cursor-pointer p-1 hover:bg-accent-light rounded-md"
+          ></ion-icon>
+        </a>
+      </li>
+      <li class="">
+        <a
+          class="flex items-center justify-center active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
+          title="Remove Question"
+          onclick="deleteQuestion(this)"
+        >
+          <ion-icon
+            name="trash"
+            class="text-accent cursor-pointer p-1 hover:bg-accent-light rounded-md"
+          ></ion-icon>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <textarea
+    name=""
+    id=""
+    cols="10"
+    rows="4"
+    class="focus:border-accent focus:outline-0 w-full border resize-none p-2 rounded text-sm"
+    placeholder="Answer"
+    readonly
+  ></textarea>
+</section>

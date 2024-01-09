@@ -13,10 +13,12 @@
       class="space-y-1 text-sm border rounded-md focus:border-accent p-1 cursor-pointer focus:outline-none m-2"
       onchange="changeQuestionType(this)"
     >
-      <option value="short-answer" class="p-1 hover:text-accent">
+      <option value="shortQuestion" selected class="p-1 hover:text-accent">
         Short Answer
       </option>
-      <option value="paragraph" class="p-1 hover:text-accent">Paragraph</option>
+      <option value="longQuestion" class="p-1 hover:text-accent">
+        Paragraph
+      </option>
       <option value="multiple-choice" class="p-1 hover:text-accent">
         Multiple Choice
       </option>
@@ -52,13 +54,12 @@
       </li>
     </ul>
   </div>
-  <textarea
+  <input
+    type="text"
     name=""
-    id=""
-    cols="10"
-    rows="4"
     class="focus:border-accent focus:outline-0 w-full border resize-none p-2 rounded text-sm"
     placeholder="Answer"
     readonly
-  ></textarea>
+    id=""
+  />
 </section>
