@@ -7,15 +7,33 @@
       class="focus:border-accent focus:outline-0 w-3/4 leading-10 py-2 font-medium text-base"
       placeholder="Question"
     />
+    <select
+      name=""
+      id=""
+      class="space-y-1 text-sm border rounded-md focus:border-accent p-1 cursor-pointer focus:outline-none m-2"
+      onchange="changeQuestionType(this)"
+    >
+      <option value="short-answer" class="p-1 hover:text-accent">
+        Short Answer
+      </option>
+      <option value="paragraph" class="p-1 hover:text-accent">Paragraph</option>
+      <option value="multiple-choice" class="p-1 hover:text-accent">
+        Multiple Choice
+      </option>
+      <option value="checkboxes" class="p-1 hover:text-accent">
+        Checkboxes
+      </option>
+      <option value="dropdown" class="p-1 hover:text-accent">Dropdown</option>
+    </select>
     <ul class="flex items-center justify-center space-x-2">
       <li class="">
         <a
           class="flex items-center justify-center active:outline-none active:border-none focus:border:none focus:outline-none border-none outline-none"
-          title="More"
-          onclick="deleteQuestion(this)"
+          title="Duplicate"
+          onclick="duplicateQuestion(this)"
         >
           <ion-icon
-            name="ellipsis-vertical"
+            name="copy"
             class="text-accent cursor-pointer p-1 hover:bg-accent-light rounded-md"
           ></ion-icon>
         </a>
