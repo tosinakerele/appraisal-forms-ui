@@ -118,11 +118,11 @@ const addNewQuestion = async (questionType = "shortQuestion") => {
     if (response.status === 200) {
       const data = await response.text();
 
-      const newDiv = document.createElement("div");
-      newDiv.setAttribute("data-name", "question");
-      newDiv.innerHTML = data;
-      tempView = newDiv;
-      saveBtn.insertAdjacentElement("beforebegin", newDiv);
+      const newSectionContainer = document.createElement("section");
+      newSectionContainer.setAttribute("data-name", "question");
+      newSectionContainer.innerHTML = data;
+      tempView = newSectionContainer;
+      saveBtn.insertAdjacentElement("beforebegin", newSectionContainer);
       return tempView;
     } else {
       alert("error");
@@ -130,33 +130,23 @@ const addNewQuestion = async (questionType = "shortQuestion") => {
   } catch (error) {
     alert("Error fetching response", error);
   }
-
-  // let route = `/hrm/appraisal/forms/add-new-question/${questionType}`;
-  // let templateView;
-  // await $.ajax({
-  //   type: "GET",
-  //   url: route,
-  //   success: function (data) {
-  //     const template = document.createElement("div");
-  //     template.setAttribute("data-name", "question");
-  //     template.innerHTML = data;
-  //     templateView = template;
-  //   },
-  //   error: function (data) {
-  //     console.error(data);
-  //   },
-  // });
-  // return templateView;
 };
 
 const changeQuestionType = async (e) => {
   const selectedValue = e.value;
   const response = await addNewQuestion(selectedValue);
-  const oldQuestionType = e.closest("section").parentElement;
+  const oldQuestionType = e.closest("div").parentElement;
   form.replaceChild(response, oldQuestionType);
 };
 
 const addQuestionOnClick = async () => {
+  const newSection = document.querySelector(
+    'div[data-name="new-entire-question"]'
+  );
+  if (!newSection) {
+    alert("Please, create a question first.");
+    return;
+  }
   const response = await addNewQuestion();
   saveBtn.insertAdjacentElement("beforebegin", response);
 };
@@ -174,18 +164,16 @@ const getSections = () => {
 const getQuestions = () => {
   let formQuestions = document.querySelectorAll('[data-name="question"]');
   let sections = getSections();
-  let formOptions = document.querySelectorAll('[data-name="options"]');
+  let formOptions = document.querySelectorAll('[data-name="options"]'); // if it is a kind of question with options.
 
   let questions = [];
 
-  formQuestions.forEach((question) => {
-    let name =
-        question.firstElementChild.children[0].children[0].children[1].value,
-      type =
-        question.firstElementChild.children[0].children[1].firstElementChild
-          .value,
-      options;
+  // So we want to go through all the questions and get the name/title of each question and the question type respectively.
 
+  formQuestions.forEach((question) => {
+    let name = question.firstElementChild.children[0].children[0].value,
+      type = question.firstElementChild.children[0].children[1].value,
+      options;
     if (!options) {
       options = [];
     }
